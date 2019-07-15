@@ -3,7 +3,25 @@ import Header from './components/Header';
 import './App.css';
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
-  return <div className='todo'>{todo.text}</div>   
+  return <div className='todo'>{todo.text}</div>;
+}
+
+function TodoForm({ addTodo }) {
+  const [value, setValue] = useState('');
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (!value) return;
+    addTodo(value);
+    setValue('');
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" className='input' value={value}
+        placeholder="Add item to the list..."
+        onChange={e => setValue(e.target.value)} />
+    </form>
+  )
 }
 
 function App() {
@@ -24,6 +42,11 @@ function App() {
 
   ]);
 
+  const addTodo = text => {
+    const newTodo = [...todos, { text }];
+    setTodo(newTodo);
+  }
+
   return (<div className='app'>
     <Header/>
     <div className='todo-list'>
@@ -33,6 +56,7 @@ function App() {
           todo={todo}
         />
       ))}
+      <TodoForm addTodo={addTodo} />
     </div>
   </div>)
 }

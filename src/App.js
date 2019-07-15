@@ -3,7 +3,14 @@ import Header from './components/Header';
 import './App.css';
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
-  return <div className='todo'>{todo.text}</div>;
+  return <div style={{ textDecoration: todo.isCompleted ? 'line-through' : '' }}
+    className='todo'>
+    {todo.text}
+    <div>
+      <button onClick={() => completeTodo(index)}>Completed</button>
+      <button onClick={() => removeTodo(index)}>Delete</button>
+    </div>
+  </div>;
 }
 
 function TodoForm({ addTodo }) {
@@ -47,6 +54,18 @@ function App() {
     setTodo(newTodo);
   }
 
+  const completeTodo = index => {
+    const newTodo = [...todos];
+    newTodo[index].isCompleted = true;
+    setTodo(newTodo);
+  }
+
+  const removeTodo = index => {
+    const newTodo = [...todos];
+    newTodo.splice(index, 1);
+    setTodo(newTodo);
+  }
+
   return (<div className='app'>
     <Header/>
     <div className='todo-list'>
@@ -54,6 +73,8 @@ function App() {
         <Todo key={index}
           index={index}
           todo={todo}
+          completeTodo={completeTodo}
+          removeTodo={removeTodo}
         />
       ))}
       <TodoForm addTodo={addTodo} />

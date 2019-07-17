@@ -1,0 +1,154 @@
+// spacing scale - margins & padding
+$base-space: 1rem;
+$spacing-xxs: calc(#{$base-space} / 8); // 2px spacing
+$spacing-xs: calc(#{$base-space} / 4);// 4px spacing
+$spacing-s: calc(#{$base-space} / 2);// 8px spacing
+$spacing-m: $base-space; // 16px spacing
+$spacing-l: calc(#{$base-space} * 2); // 32px spacing
+$spacing-xl: calc(#{$base-space} * 4); // 64px spacing
+$spacing-xxl: calc(#{$base-space} * 8); // 128px spacing
+
+// project colours 
+$background-colour: #6fc3f7;
+$foreground-colour: hsl(0, 0%, 100%);
+$primary-text-colour: #262626;
+$secondary-text-colour: #3f3f3f;
+$button-colour-primary: #d15357;
+$button-colour-secondary: hsl(169, 45%, 62%);
+
+// Type/font scale
+$text-base: 1em;
+$text-scale: 1.2;
+$body-text: $text-base;
+$body-small: calc(#{$body-text} / #{$text-scale});
+$caption: calc(#{$body-small} / #{$text-scale});
+$h6: calc(#{$body-text} * #{$text-scale});
+$h5: calc(#{$h6} * #{$text-scale});
+$h4: calc(#{$h5} * #{$text-scale});
+$h3: calc(#{$h4} * #{$text-scale});
+$h2: calc(#{$h3} * #{$text-scale});
+$h1: calc(#{$h2} * #{$text-scale});
+
+body {
+    font-size: $text-base;
+}
+
+h1,
+.h1-like {
+    font-size: $h1;
+}
+
+h2,
+.h2-like {
+    font-size: $h2;
+}
+
+h3,
+.h3-like {
+    font-size: $h3;
+}
+
+h4,
+.h4-like {
+    font-size: $h4;
+}
+
+h5,
+.h5-like {
+    font-size: $h5;
+}
+
+h6,
+.h6-like {
+    font-size: $h6;
+}
+
+p,
+.body-text {
+    font-size: $body-text;
+}
+
+.body-small,
+small {
+    font-size: $body-small;
+}
+
+.caption {
+    font-size: $caption;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: inherit;
+}
+
+.header {
+    color: $primary-text-colour;
+    display: flex;
+    font-size: $h1;
+    justify-content: center;
+    margin-bottom: $spacing-s;
+    padding: $spacing-l;
+}
+
+.todo {
+    align-items: center;
+    background-color: $foreground-colour;
+    border-top-left-radius: 0.2em;
+    border-top-right-radius: 0.2em;
+    color: $primary-text-colour;
+    display: flex;
+    font-size: $body-text;
+    justify-content: space-between;
+    margin-left: $spacing-l;
+    margin-right: $spacing-l;
+    padding: $spacing-m;
+}
+
+.todolist {
+    font-size: $body-text;
+}
+
+.input {
+    color: $secondary-text-colour;
+    cursor: pointer;
+    font-size: $h6;
+    height: 2em;
+    width: 100%;
+}
+
+.button {
+    border-radius: 0.2em;
+    border: none;
+    box-shadow: 0 0.125em 0.375em 0 hsla(0, 0%, 0%, 0.2);
+    cursor: pointer;
+    font-size: $body-small;
+    padding: $spacing-s;
+}
+
+.button__remove {
+    background-color: $button-colour-primary;
+    margin-left: $spacing-s;
+    width: 3em;
+}
+
+.todo,
+.button__complete:hover,
+.button__remove:hover {
+    box-shadow: 0.125em 0.375em 1.85em hsla(0, 0, 0, 0.2);
+}
+
+.button__complete:hover {
+    background-color: $button-colour-secondary;
+}

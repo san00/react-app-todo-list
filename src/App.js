@@ -1,5 +1,6 @@
 import React, { useState }from 'react';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import './App.scss';
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
@@ -79,6 +80,7 @@ function App() {
         />
       ))}  
     </div>
+    <Footer/>
   </div>)
 }
 

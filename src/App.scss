@@ -11,10 +11,13 @@ $spacing-xxl: calc(#{$base-space} * 8); // 128px spacing
 // project colours 
 $background-colour: #6fc3f7;
 $foreground-colour: hsl(0, 0%, 100%);
+$secondary-background-colour:#b0b0b0;
 $primary-text-colour: #262626;
 $secondary-text-colour: #3f3f3f;
-$button-colour-primary: #d15357;
-$button-colour-secondary: hsl(169, 45%, 62%);
+$button-remove-colour: #d15357;
+$button-complete-hover-colour: #72caba;
+$button-complete-colour:#d9e3e1;
+
 
 // Type/font scale
 $text-base: 1em;
@@ -137,8 +140,12 @@ small {
     padding: $spacing-s;
 }
 
+.button{
+    background-color: $button-complete-colour;
+}
+
 .button__remove {
-    background-color: $button-colour-primary;
+    background-color: $button-remove-colour;
     margin-left: $spacing-s;
     width: 3em;
 }
@@ -150,5 +157,21 @@ small {
 }
 
 .button__complete:hover {
-    background-color: $button-colour-secondary;
+    background-color: $button-complete-hover-colour;
+}
+
+.footer{
+    background-color:$secondary-background-colour;
+    border-top-left-radius: 0.2em;
+    border-top-right-radius: 0.2em;
+    color: $primary-text-colour;
+    display: flex;
+    font-size: $body-text;
+    margin-left: $spacing-l;
+    margin-right: $spacing-l;
+    padding: $spacing-m;
+}
+
+.link{
+    padding-left: $spacing-xs;
 }
